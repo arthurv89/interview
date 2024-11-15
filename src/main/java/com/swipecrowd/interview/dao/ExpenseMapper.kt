@@ -10,7 +10,6 @@ object ExpenseMapper {
             id = UUID.fromString(this.id),
             value = this.value!!,
             description = this.description!!,
-            date = this.date!!,
         )
     }
 
@@ -19,7 +18,6 @@ object ExpenseMapper {
             id = id?.toString() ?: UUID.randomUUID().toString(),
             value = value,
             description = description,
-            date = date,
         )
     }
 }

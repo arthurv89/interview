@@ -1,8 +1,8 @@
 package com.swipecrowd.interview
 
 import com.swipecrowd.interview.TestContainerUtils.createTestAwsSettings
+import com.swipecrowd.interview.bootstrap.Bootstrap
 import com.swipecrowd.interview.bootstrap.DynamoDbClientProvider
-import com.swipecrowd.interview.bootstrap.bootstrapDynamoDb
 import com.swipecrowd.interview.model.ExpenseItem
 import com.swipecrowd.interview.model.ExpenseItemSchema
 import org.junit.jupiter.api.extension.BeforeAllCallback
@@ -15,7 +15,7 @@ import java.time.Duration
 
 class BeforeAllTests : BeforeAllCallback {
     override fun beforeAll(context: ExtensionContext) {
-        bootstrapDynamoDb(createTestAwsSettings())
+        Bootstrap.bootstrap(createTestAwsSettings())
 
         createTable(ExpenseItemSchema.tableName, ExpenseItemSchema.schema)
     }

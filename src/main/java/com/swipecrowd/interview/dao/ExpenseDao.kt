@@ -16,10 +16,6 @@ import java.util.UUID
 class ExpenseDao {
     val table: DynamoDbTable<ExpenseItem> = DynamoDbClientProvider.current.table(ExpenseItemSchema.tableName, ExpenseItemSchema.schema)
 
-//    fun listAll(): List<Expense> {
-//        return listOf()
-//    }
-
     fun getExpenses(id: UUID): Expense? {
         return try {
             table.getItem(
@@ -37,11 +33,4 @@ class ExpenseDao {
         }
         return item.expenseItemToModel()
     }
-
-//    fun update(): Expense {
-//    }
-//
-//    fun delete(): Unit {
-//
-//    }
 }
